@@ -23,7 +23,12 @@ alias pu='sudo pacman -Syu'
 alias pi='sudo pacman -S'
 alias pr='sudo pacman -Rsu'
 alias pq='sudo pacman -Qe'
+alias ps='pacman -Qs'
+
 alias autoclean='sudo pacman -Rns $(pacman -Qtdq) && yay -Sc'
+
+alias yu='yay -u'
+alias yc='yay -c'
 
 # Colored output
 alias ls='ls -laGH --color=auto'
