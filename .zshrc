@@ -97,9 +97,6 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # ZSH Syntax Highlighting - must be at the end of .zshrc!
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Launch pfetch when opening new terminal
-[ "$TERM" != "dumb" ] && neofetch
-
 plugins=(git zsh-autosuggestions)
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
