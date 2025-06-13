@@ -12,3 +12,7 @@ I keep my dotfiles in this repository to:
 - Track changes to my configurations over time
 - Quickly set up my preferred environment on new systems
 - Share my setup with others who might find it useful
+
+### Screen Kitty with my configuration
+
+![Kitty Terminal Screenshot](kitty.png)
