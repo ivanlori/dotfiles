@@ -15,10 +15,11 @@ I keep my dotfiles in this repository to:
 
 ## Packages required
 
-- btop: replacement for htop and top tools;
-- bat: replacement for cat command;
-- eza: replacement for ls command;
+- btop: computer performance monitor;
+- nvim: editor;
 - FZF: fuzzy finder;
+- eza: replacement for ls command;
+- bat: replacement for cat command;
 
 ### Screen Kitty with my configuration
 
