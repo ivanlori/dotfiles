@@ -13,6 +13,13 @@ I keep my dotfiles in this repository to:
 - Quickly set up my preferred environment on new systems
 - Share my setup with others who might find it useful
 
+## Packages required
+
+- btop: replacement for htop and top tools;
+- bat: replacement for cat command;
+- eza: replacement for ls command;
+- FZF: fuzzy finder;
+
 ### Screen Kitty with my configuration
 
 ![Kitty Terminal Screenshot](kitty.png)
