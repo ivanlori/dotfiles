@@ -10,6 +10,9 @@ alias clearlogs='sudo journalctl --vacuum-time=1week'
 alias clearcache='sudo rm -rf /var/cache/pacman/pkg/*'
 
 alias v='nvim'
+alias ff="fzf --style full --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'"
+alias cat="bat"
+alias p="btop"
 
 alias gs='git status'
 alias ga='git add -A'
@@ -31,7 +34,8 @@ alias yu='yay -u'
 alias yc='yay -c'
 
 # Colored output
-alias ls='ls -laGH --color=auto'
+alias ls='eza --all --header --long $eza_params'
+alias lx='eza -lbhHigUmuSa@'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip --color=auto'
@@ -53,9 +57,6 @@ export HISTSIZE=1000
 
 # Maximum number of commands stores in HISTFILE
 export SAVEHIST=1000
-
-# Setting default Ranger RC to false to avoid loading it twice
-export RANGER_LOAD_DEFAULT_RC='false'
 
 # Loading ZSH modules
 autoload -Uz compinit
@@ -109,3 +110,5 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
