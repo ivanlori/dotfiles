@@ -5,10 +5,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+OS_TYPE="$(uname)"
+
 # Aliases
 alias clearlogs='sudo journalctl --vacuum-time=1week'
 alias clearcache='sudo rm -rf /var/cache/pacman/pkg/*'
 
+alias curl='curlie'
 alias v='nvim'
 alias ff="fzf --style full --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'"
 alias cat="bat"
@@ -17,21 +20,31 @@ alias p="btop"
 alias gs='git status'
 alias ga='git add -A'
 alias gc='git commit -m'
-alias gpll='git pull'
-alias gpsh='git push'
+# git get
+alias gg='git pull'
+alias gp='git push'
 alias gd='git diff'
 alias gl='git log --stat --graph --decorate --oneline'
 
+#pacman upgrade
 alias pu='sudo pacman -Syu'
+#pacman install
 alias pi='sudo pacman -S'
+#pacman remove
 alias pr='sudo pacman -Rsu'
-alias pq='sudo pacman -Qe'
+#pacman list
+alias pl='sudo pacman -Qe'
+#pacman search
 alias ps='pacman -Qs'
 
 alias autoclean='sudo pacman -Rns $(pacman -Qtdq) && yay -Sc'
 
+#yay upgrade
 alias yu='yay -u'
+#yay clean
 alias yc='yay -c'
+#yay install
+alias yi='yay -S'
 
 # Colored output
 alias ls='eza --all --header --long $eza_params'
@@ -85,30 +98,43 @@ PS1='%B%F{blue}❬%n%f@%F{blue}%m❭%f %F{blue} %1~%f%b ${vcs_info_msg_0_} '
 # ZSH profile
 source ~/.profile
 
-# XDG user dirs
-source ~/.config/user-dirs.dirs
-
-# Keybindings for FZF
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
-
-# ZSH Autosuggestions
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# ZSH Syntax Highlighting - must be at the end of .zshrc!
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 plugins=(git zsh-autosuggestions)
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # bun completions
-[ -s "/home/ivan/.bun/_bun" ] && source "/home/ivan/.bun/_bun"
+#[ -s "/home/ivan/.bun/_bun" ] && source "/home/ivan/.bun/_bun"
 
 # bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# export BUN_INSTALL="$HOME/.bun"
+# export PATH="$BUN_INSTALL/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/ivan/.lmstudio/bin"
+# End of LM Studio CLI section
+
+# Conf for Linux
+if [[ "$OS_TYPE" == "Linux" ]]; then
+  # XDG user dirs
+  source ~/.config/user-dirs.dirs
+
+  # Keybindings for FZF
+  source /usr/share/fzf/key-bindings.zsh
+  source /usr/share/fzf/completion.zsh
+
+  # ZSH Autosuggestions
+  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+  # ZSH Syntax Highlighting - must be at the end of .zshrc!
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+  source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+fi
+
+# Conf for MacOS
+if [[ "$OS_TYPE" == "Darwin" ]]; then
+
+fi
